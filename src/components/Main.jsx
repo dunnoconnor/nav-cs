@@ -13,7 +13,6 @@ function Main() {
   
     function resolveSearch(searchTerms){
       setSearchProperties(searchTerms);
-      console.log(searchTerms);
       setSearching(true);
     };
   

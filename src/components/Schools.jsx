@@ -5,7 +5,7 @@ function Schools({resetSearch, searchProperties}) {
   const searchOptions = {
     key: process.env.REACT_APP_CSC_KEY,
     api: 'https://api.data.gov/ed/collegescorecard/v1',
-    major: 'latest.programs.cip_4_digit.code=1107',
+    major: 'latest.programs.cip_4_digit.code=1101,1102,1107',
     credential: searchProperties.degree,
     state: searchProperties.stateCode,
     per_page: '50',
@@ -51,10 +51,10 @@ function Schools({resetSearch, searchProperties}) {
         state : i['school.state'],
         cost : (i['latest.cost.avg_net_price.public'] ? i['latest.cost.avg_net_price.public'] : i['latest.cost.avg_net_price.private']),
         acceptanceRate : i['latest.admissions.admission_rate.overall'],
-        graduates : i['latest.programs.cip_4_digit'][0].counts.ipeds_awards2,
-        title : i['latest.programs.cip_4_digit'][0].title,
-        credential : i['latest.programs.cip_4_digit'][0].credential.title,
-        salary : i['latest.programs.cip_4_digit'][0].earnings.highest['2_yr'].overall_median_earnings
+        graduates : i['latest.programs.cip_4_digit'][(i['latest.programs.cip_4_digit'].length-1)].counts.ipeds_awards2,
+        title : i['latest.programs.cip_4_digit'][(i['latest.programs.cip_4_digit'].length-1)].title,
+        credential : i['latest.programs.cip_4_digit'][(i['latest.programs.cip_4_digit'].length-1)].credential.title,
+        salary : i['latest.programs.cip_4_digit'][(i['latest.programs.cip_4_digit'].length-1)].earnings.highest['2_yr'].overall_median_earnings
       }
       )));
       const filteredResults = schoolResults.filter(s => s.graduates>1);
@@ -68,7 +68,6 @@ function Schools({resetSearch, searchProperties}) {
       array.sort((a, b) => (a[sortTerm] > b[sortTerm] ? -1 : 1));
     }
     setSchools(array);
-    console.log(array);
   }
   
   if(schools===null){

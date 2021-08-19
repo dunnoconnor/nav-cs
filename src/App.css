@@ -58,7 +58,7 @@ a {
   color: rgb(0, 0, 0);
 }
 
-.SchoolDetail, .Form{
+.SchoolDetail, .Form {
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -73,6 +73,21 @@ a {
   border-style: solid;
   border-radius: 6px;
   border-width: 2px;
+}
+
+.Form {
+  align-items:stretch;
+  height: 60vh;
+  padding: 0.8rem;
+}
+
+select, button {
+  height: 40px;
+  border-radius: 6px;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  background-color:rgb(255, 255, 255);
+  font-size: 16px;
 }
 
 p {

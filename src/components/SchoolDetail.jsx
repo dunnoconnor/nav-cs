@@ -60,7 +60,6 @@ function SchoolDetail({match}) {
             } else {
                 salaryReport = "unreported";
               }
-              
             let programProfile = {
               id : thisSchool.id,
               name : thisProgram.school.name,
@@ -80,7 +79,6 @@ function SchoolDetail({match}) {
             };
 
             setProgram(programProfile);
-            console.log(programProfile);
           })
           .catch(console.error);
       }

@@ -29,7 +29,7 @@ function Search({resolveSearch}) {
         <form className ="Form" onSubmit={handleSubmit}>
 
             <div className="row">
-                <label htmlFor="sortTerm">Sort by: </label>
+                <label htmlFor="sortTerm">Sort by:</label>
                 <select id="sortTerm" onChange={handleChange} value={formState.sortTerm}>
                     <option value='acceptanceRate'>Most Selective</option>
                     <option value='salary'>Highest Post-Graduate Salary</option>
@@ -40,7 +40,7 @@ function Search({resolveSearch}) {
 
             <div className="row">
                 
-                <label htmlFor="degree">Filter by Degree: </label>
+                <label htmlFor="degree">Filter by Degree:</label>
                 <select id="degree" onChange={handleChange} value={formState.degree}>
                     <option value='2,3'>Bachelors or Associates</option>
                     <option value='3'>Bachelors</option>
@@ -50,7 +50,7 @@ function Search({resolveSearch}) {
 
             <div className="row">
                 
-                <label htmlFor="stateCode">Filter by State: </label>
+                <label htmlFor="stateCode">Filter by State:</label>
                 <select id="stateCode" onChange={handleChange} value={formState.stateCode}>
                 {stateAbbreviations.map(i => (
                     <option key={i} value={i}>{i}</option>
