@@ -12,11 +12,8 @@ function Main() {
     };
   
     function resolveSearch(searchTerms){
-      const newSearchProperties = {
-        stateCode : searchTerms
-      }
-      setSearchProperties(newSearchProperties);
-      console.log(newSearchProperties);
+      setSearchProperties(searchTerms);
+      console.log(searchTerms);
       setSearching(true);
     };
   

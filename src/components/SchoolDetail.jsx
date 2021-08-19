@@ -41,11 +41,7 @@ function SchoolDetail({match}) {
             let thisSchool = response.results[0];
             let thisProgram = thisSchool['latest.programs.cip_4_digit'][0];
 
-            let costReport = thisSchool['latest.cost.avg_net_price.public'];
-            if(!costReport){
-              costReport = thisSchool['latest.cost.avg_net_price.private'];
-            }
-            
+            let costReport = (thisSchool['latest.cost.avg_net_price.public'] ? thisSchool['latest.cost.avg_net_price.public'] : thisSchool['latest.cost.avg_net_price.private']);
             if(costReport){
               costReport = costReport.toLocaleString('en-US', {
                 style: 'currency',
@@ -55,16 +51,14 @@ function SchoolDetail({match}) {
             }
 
             let salaryReport = thisProgram.earnings.highest['2_yr'].overall_median_earnings;
-
             if (salaryReport) {
               salaryReport = salaryReport.toLocaleString('en-US', {
                 style: 'currency',
                 currency: 'USD',
                 minimumFractionDigits: 0
               });
-            
             } else {
-                salaryReport = "not reported";
+                salaryReport = "unreported";
               }
               
             let programProfile = {
@@ -90,6 +84,7 @@ function SchoolDetail({match}) {
           })
           .catch(console.error);
       }
+
       if(program===null){
         return(
           <div>Loading Results...</div>
@@ -97,7 +92,7 @@ function SchoolDetail({match}) {
       } else{
           return (
             <div>
-                <Link to="/">Back to Search Results</Link>
+                <Link to="/">{`\u003C`} New Search </Link>
                 <div className="SchoolDetail">
                   <div className="banner">
                     <h3>{program.name}</h3>

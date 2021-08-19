@@ -80,11 +80,12 @@ p {
   padding: 0px;
 }
 
-.school-name {
+.bold {
   font-weight: bold;
+  color: rgb(0, 115, 255);
 }
 
-.school-listing {
+.school-location {
   color: darkgray;
 }
 
