@@ -37,11 +37,11 @@
   overflow: hidden;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  height: 12vh;
+  align-items:flex-start;
+  height: 16vh;
   width: 85vw;
-  margin: 0.2rem;
-  padding: 0.2rem;
+  margin: 0.4rem;
+  padding: 0.4rem;
 
   background-color: rgb(255, 255, 255);
   border-style: solid;
@@ -64,7 +64,7 @@ a {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 65vh;
+  height: 70vh;
   width: 85vw;
   margin: 1rem;
   padding: 0.5rem;
@@ -73,6 +73,19 @@ a {
   border-style: solid;
   border-radius: 6px;
   border-width: 2px;
+}
+
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+.school-name {
+  font-weight: bold;
+}
+
+.school-listing {
+  color: darkgray;
 }
 
 .return-button{
@@ -104,4 +117,10 @@ a {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+}
+
+.banner{
+  width: 100%;
+  background-color: rgb(217, 234, 255);
+  border-radius: 6px;
 }
