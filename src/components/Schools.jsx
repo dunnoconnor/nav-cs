@@ -2,13 +2,20 @@ import React, { useState, useEffect } from 'react';
 import School from './School';
 
 function Schools({resetSearch, searchProperties}) {
+  //set location variable based on locationType in searchProperties
+  let location = "";
+  if(searchProperties.locationType==='state'){
+    location = (`school.state=${searchProperties.stateCode}`);
+  } else {
+    location =(`zip=${searchProperties.zipcode}&distance=${searchProperties.range}`)
+  }
   //object storing relevant parameters for api call
   const searchOptions = {
     key: process.env.REACT_APP_CSC_KEY,
     api: 'https://api.data.gov/ed/collegescorecard/v1',
     major: 'latest.programs.cip_4_digit.code=1101,1102,1107',
     credential: searchProperties.degree,
-    state: searchProperties.stateCode,
+    location : location,
     per_page: '50',
     sort: 'latest.admissions.admission_rate.overall',
     fields: [
@@ -31,7 +38,7 @@ function Schools({resetSearch, searchProperties}) {
   }, []);
   //api fetch request
   function getSchools() {
-    const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&per_page=${searchOptions.per_page}&school.state=${searchOptions.state}&${searchOptions.major}&latest.programs.cip_4_digit.credential.level=${searchOptions.credential}&sort=${searchOptions.sort}&fields=${searchOptions.fields.join()}`;
+    const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&per_page=${searchOptions.per_page}&${searchOptions.location}&${searchOptions.major}&latest.programs.cip_4_digit.credential.level=${searchOptions.credential}&sort=${searchOptions.sort}&fields=${searchOptions.fields.join()}`;
     fetch(url)
       .then(response => response.json())
       .then(response => {

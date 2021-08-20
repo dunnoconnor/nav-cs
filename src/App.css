@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   min-height: min-content;
-  background-color: rgb(217, 234, 255);
+  background-image: url("./components/college.jpeg");
 }
 
 .Header{
@@ -15,7 +15,6 @@
   width: 100vw;
   height: 10vh;
   padding: 0.4rem;
-  background-color:rgb(52, 134, 235);
   color: rgb(255, 255, 255);
 }
 
@@ -69,7 +68,7 @@ a {
   margin: 1rem;
   padding: 0.5rem;
 
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.9);
   border-style: solid;
   border-radius: 6px;
   border-width: 2px;
@@ -81,14 +80,16 @@ a {
   padding: 0.8rem;
 }
 
-select, button {
+select, button, input {
   height: 40px;
+  border-style: solid;
+  padding:  0.2rem;
+  border-width: 1px;
   border-radius: 6px;
-  padding: 0.2rem;
-  margin: 0.2rem;
   background-color:rgb(255, 255, 255);
   font-size: 16px;
 }
+
 
 p {
   margin: 0px;

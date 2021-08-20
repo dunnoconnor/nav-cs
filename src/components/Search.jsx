@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
+import SearchState from './SearchState';
+import SearchZip from './SearchZip';
 
 function Search({resolveSearch}) {
     
     const initialState = {
-        stateCode: 'MA',
+        locationType : 'state',
+        stateCode : 'MA',
+        zipcode : "",
+        range : "10mi",
         sortTerm : 'admissionsRate',
         degree : '2,3'
     };
-
-    const stateAbbreviations = [
-        'AL','AK','AZ','AR','CA','CO','CT','DE','DC','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','PR','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'
-    ];
 
     const [formState, setFormState] = useState(initialState);
 
@@ -39,7 +40,7 @@ function Search({resolveSearch}) {
 
             <div className="row">
                 
-                <label htmlFor="degree">Filter by Degree:</label>
+                <label htmlFor="degree">Degree:</label>
                 <select id="degree" onChange={handleChange} value={formState.degree}>
                     <option value='2,3'>Bachelors or Associates</option>
                     <option value='3'>Bachelors</option>
@@ -48,15 +49,14 @@ function Search({resolveSearch}) {
             </div>
 
             <div className="row">
-                
-                <label htmlFor="stateCode">Filter by State:</label>
-                <select id="stateCode" onChange={handleChange} value={formState.stateCode}>
-                {stateAbbreviations.map(i => (
-                    <option key={i} value={i}>{i}</option>
-                ))} 
+                <label htmlFor="locationType">Filter Location by:</label>
+                <select id="locationType" onChange={handleChange} value={formState.locationType}>
+                    <option value='state'>State</option>
+                    <option value='zipcode'>Zipcode</option>
                 </select>
             </div>
 
+            {(formState.locationType==='state' ? <SearchState handleChange={handleChange} stateCode={formState.stateCode}/> : <SearchZip handleChange={handleChange} zipode={formState.zipcode} range={formState.range}/>)}
 
             <button type="submit">Search</button>
         </form>
