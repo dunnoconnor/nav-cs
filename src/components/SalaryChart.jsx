@@ -2,6 +2,7 @@ import React from 'react';
 import { Chart } from "react-google-charts";
 
 function SalaryChart({schools}) {
+    //display top 6 salaries of returned schools
     const filteredResults = schools.filter(s => s.salary>1);
     console.log(filteredResults);
     const dataArray =[
