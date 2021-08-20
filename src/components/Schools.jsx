@@ -79,6 +79,7 @@ function Schools({resetSearch, searchProperties}) {
     //store array of schools in state
     setSchools(array);
   }
+
   //guard operator displays program after api response
   if(schools===null){
     return(
@@ -86,7 +87,9 @@ function Schools({resetSearch, searchProperties}) {
     )
   } else{
     
-    return (       <div className="Schools">
+    return ( 
+    
+      <div className="Schools">
         <button className="return-button" onClick={resetSearch}>{`\u003C`} Return to Search</button>
           {schools.map(i => (
               <School 

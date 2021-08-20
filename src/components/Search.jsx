@@ -7,7 +7,7 @@ function Search({resolveSearch}) {
     const initialState = {
         locationType : 'state',
         stateCode : 'MA',
-        zipcode : "",
+        zipcode : "01609",
         range : "10mi",
         sortTerm : 'admissionsRate',
         degree : '2,3'

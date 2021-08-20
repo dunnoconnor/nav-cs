@@ -33,6 +33,16 @@
   margin: 1rem;
 }
 
+.SalaryChart {
+  width: 100vw;
+  margin: 0.4rem;
+  padding: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-style: solid;
+  border-radius: 6px;
+  border-width: 2px;
+}
+
 .School {
   display: flex;
   overflow: hidden;

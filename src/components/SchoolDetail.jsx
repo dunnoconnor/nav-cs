@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Chart } from "react-google-charts";
 
 function SchoolDetail({match}) {
     //object storing relevant parameters for api call
@@ -74,7 +75,7 @@ function SchoolDetail({match}) {
               title : thisProgram.title.substring(0, thisProgram.title.length - 1),
               salary : salaryReport,
               graduates : thisProgram.counts.ipeds_awards2,
-              acceptanceRate : (thisSchool['latest.admissions.admission_rate.overall']*100).toFixed(2),
+              acceptanceRate : (parseFloat(thisSchool['latest.admissions.admission_rate.overall'])*100),
               satScore : thisSchool['latest.admissions.sat_scores.average.overall'],
               actScore : thisSchool['latest.admissions.act_scores.midpoint.cumulative']
           };
@@ -103,7 +104,22 @@ function SchoolDetail({match}) {
                 <p>Average Annual Net Cost: {program.cost}</p>
                 <p>Receiving Federal Loans: {program.aid} %</p>
                 <br/>
-                <p>Acceptance Rate: {program.acceptanceRate} %</p>
+                <Chart     
+                    width={'400px'}
+                    chartType="PieChart"
+                    loader={<div>Loading Chart</div>}
+                    data={[
+                      ['Status', "%"],
+                      ['Accepted', (program.acceptanceRate)],
+                      ['Declined', (100-program.acceptanceRate)]
+                    ]}
+                    options={{
+                        title: `Acceptance Rate ${program.acceptanceRate}%`,
+                      // Just add this option
+                      pieHole: 0.4,
+                    }}
+                    rootProps={{ 'data-testid': '3' }}
+                />
                 <p>Average SAT Score: {program.satScore}</p>
                 <p>Average ACT Score: {program.actScore}</p>
               <div className="banner">

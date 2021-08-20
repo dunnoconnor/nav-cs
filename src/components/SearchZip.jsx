@@ -6,6 +6,7 @@ function SearchZip({handleChange, zipcode, range}) {
             <input
                 id="zipcode"
                 type="text"
+                placeholder="zipcode"
                 title="5 digit postal code"
                 pattern="[0-9]{5}"
                 onChange={handleChange}
