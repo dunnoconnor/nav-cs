@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import School from './School';
 
 function Schools({resetSearch, searchProperties}) {
+  //object storing relevant parameters for api call
   const searchOptions = {
     key: process.env.REACT_APP_CSC_KEY,
     api: 'https://api.data.gov/ed/collegescorecard/v1',
@@ -22,13 +23,13 @@ function Schools({resetSearch, searchProperties}) {
     ],
     endpoint: '/schools.json'
   };
-      
+  //state storing schools list
   const [schools, setSchools] = useState(null);
-    
+  //load schools list on component mount
   useEffect(() => {
     getSchools();
   }, []);
-    
+  //api fetch request
   function getSchools() {
     const url = `${searchOptions.api}${searchOptions.endpoint}?api_key=${searchOptions.key}&per_page=${searchOptions.per_page}&school.state=${searchOptions.state}&${searchOptions.major}&latest.programs.cip_4_digit.credential.level=${searchOptions.credential}&sort=${searchOptions.sort}&fields=${searchOptions.fields.join()}`;
     fetch(url)
@@ -38,10 +39,10 @@ function Schools({resetSearch, searchProperties}) {
       })
       .catch(console.error);
   }
-
+  //convert relevant api data to array of objects
   function createSchoolsArray(results){
     let schoolResults = [];
-
+    //map through response results, converting to object properties for easieer access
     results.map(i => (
       schoolResults.push(
         {
@@ -57,19 +58,21 @@ function Schools({resetSearch, searchProperties}) {
         salary : i['latest.programs.cip_4_digit'][(i['latest.programs.cip_4_digit'].length-1)].earnings.highest['2_yr'].overall_median_earnings
       }
       )));
+      //filter schools to remove programs with no graduates
       const filteredResults = schoolResults.filter(s => s.graduates>1);
       sortSchoolsArray(filteredResults, searchProperties.sortTerm);
   }
-
+  //sort schools by criterea specified in the search form
   function sortSchoolsArray(array, sortTerm){
     if(sortTerm === 'acceptanceRate' || sortTerm === 'cost'){
       array.sort((a, b) => (a[sortTerm] > b[sortTerm] ? 1 : -1));
     } else {
       array.sort((a, b) => (a[sortTerm] > b[sortTerm] ? -1 : 1));
     }
+    //store array of schools in state
     setSchools(array);
   }
-  
+  //guard operator displays program after api response
   if(schools===null){
     return(
       <div>Loading Results...</div>

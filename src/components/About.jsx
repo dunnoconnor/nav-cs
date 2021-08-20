@@ -1,13 +1,11 @@
 import React from 'react';
 
-function About(props) {
+function About() {
     return (
         <div className="About">
-            <p>
-                Designed by Michael Dunn-O’Connor <br/>
-                Data from collegescorecard.ed.gov <br/>
-                GitHub repo
-            </p>
+            <a href="https://dunnoconnor.github.io/">Designed by Michael Dunn-O’Connor</a>
+            <a href="https://collegescorecard.ed.gov/data/">Data from collegescorecard.ed.gov</a>
+            <a href="https://github.com/dunnoconnor">GitHub repo</a>
         </div>
     );
 }

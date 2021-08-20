@@ -15,7 +15,7 @@ function App() {
           exact
           component={Main}
         />
-
+        
       <Route
           path="/:id"
           exact

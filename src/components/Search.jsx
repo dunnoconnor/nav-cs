@@ -21,7 +21,6 @@ function Search({resolveSearch}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         resolveSearch(formState);
-        console.log(formState)
         setFormState(initialState);
     };
 
