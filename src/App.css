@@ -20,9 +20,10 @@
   color: rgb(255, 255, 255);
 }
 
-.Header a {
+.Header a, .newSearch {
   color: rgb(255, 255, 255);
 }
+
 
 .Schools{
   display: flex;
@@ -71,11 +72,11 @@ a {
 
 .SchoolDetail, .Form {
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   justify-content: space-around;
+  overflow: scroll;
   align-items: center;
-  height: 70vh;
+  min-height: 70vh;
   width: 85vw;
   margin: 1rem;
   padding: 0.5rem;
@@ -101,7 +102,6 @@ select, button, input {
   background-color:rgb(255, 255, 255);
   font-size: 16px;
 }
-
 
 p {
   margin: 0px;
@@ -156,4 +156,11 @@ p {
   width: 100%;
   background-color: rgb(217, 234, 255);
   border-radius: 6px;
+}
+
+.SchoolMap {
+  width: 250px;
+  height: 250px;
+  margin: 0.2rem;
+  padding: 0.2rem;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Chart } from "react-google-charts";
+import SchoolMap  from './SchoolMap'
 
 function SchoolDetail({match}) {
     //object storing relevant parameters for api call
@@ -15,6 +16,8 @@ function SchoolDetail({match}) {
           'id',
           'school.city',
           'school.state',
+          'location.lat',
+          'location.lon',
           'latest.student.size',
           'latest.cost.avg_net_price.public',
           'latest.cost.avg_net_price.private',
@@ -67,6 +70,8 @@ function SchoolDetail({match}) {
               name : thisProgram.school.name,
               city : thisSchool['school.city'],
               state : thisSchool['school.state'],
+              lat : thisSchool['location.lat'],
+              lon : thisSchool['location.lon'],
               type : thisProgram.school.type,
               size : thisSchool['latest.student.size'],
               cost : costReport,
@@ -80,6 +85,7 @@ function SchoolDetail({match}) {
               actScore : thisSchool['latest.admissions.act_scores.midpoint.cumulative']
           };
           //store program profile object in state
+          console.log(programProfile.lat, programProfile.lon)
           setProgram(programProfile);
         })
         .catch(console.error);
@@ -92,11 +98,13 @@ function SchoolDetail({match}) {
     } else{
       return (
         <div>
-            <Link to="/">{`\u003C`} New Search </Link>
+            <Link className="newSearch" to="/"> New Search </Link>
+            
             <div className="SchoolDetail">
               <div className="banner">
                 <h3>{program.name}</h3>
               </div>
+                <SchoolMap key={program.id} name={program.name} lat={program.lat} lon={program.lon} />
                 <p>{program.city}, {program.state}</p>
                 <p>{program.type}</p>
                 <p>{program.size} undergraduates</p>
@@ -105,7 +113,7 @@ function SchoolDetail({match}) {
                 <p>Receiving Federal Loans: {program.aid} %</p>
                 <br/>
                 <Chart     
-                    width={'400px'}
+                    width={'300px'}
                     chartType="PieChart"
                     loader={<div>Loading Chart</div>}
                     data={[
