@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Chart } from "react-google-charts";
 import SchoolMap  from './SchoolMap'
+import SchoolChart from './SchoolChart';
 
 function SchoolDetail({match}) {
     //object storing relevant parameters for api call
@@ -97,7 +97,7 @@ function SchoolDetail({match}) {
     } else{
       return (
         <div>
-            <Link className="newSearch" to="/"> New Search </Link>
+            <Link className="new-search" to="/"> New Search </Link>
             
             <div className="SchoolDetail">
               <div className="banner">
@@ -111,29 +111,14 @@ function SchoolDetail({match}) {
                 <p>Average Annual Net Cost: {program.cost}</p>
                 <p>Receiving Federal Loans: {program.aid} %</p>
                 <br/>
-                <Chart     
-                    width={'300px'}
-                    chartType="PieChart"
-                    loader={<div>Loading Chart</div>}
-                    data={[
-                      ['Status', "%"],
-                      ['Accepted', (program.acceptanceRate)],
-                      ['Declined', (100-program.acceptanceRate)]
-                    ]}
-                    options={{
-                        title: `Acceptance Rate ${program.acceptanceRate}%`,
-                      // Just add this option
-                      pieHole: 0.4,
-                    }}
-                    rootProps={{ 'data-testid': '3' }}
-                />
+                <SchoolChart acceptanceRate={program.acceptanceRate}/>
                 <p>Average SAT Score: {program.satScore}</p>
                 <p>Average ACT Score: {program.actScore}</p>
               <div className="banner">
                 <h4>{program.credential} in {program.title}</h4>
               </div>
-                  <p><span className="bold">{program.graduates}</span> CS graduates annually</p>
-                  <p>Median post-graduate salary: <span className="bold">{program.salary}</span></p>
+                  <p className="program-detail"><span className="bold">{program.graduates}</span> CS graduates annually</p>
+                  <p className="program-detail">Median post-graduate salary: <span className="bold">{program.salary}</span></p>
               </div>
           </div>
         );

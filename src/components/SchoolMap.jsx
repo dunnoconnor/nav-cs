@@ -12,7 +12,7 @@ function SchoolMap({name,lat,lon}) {
         },
         zoom: 12
       };
-    
+
     return (
     <div className="SchoolMap">
         <GoogleMapReact
@@ -22,6 +22,7 @@ function SchoolMap({name,lat,lon}) {
         defaultZoom={defaultProps.zoom}
         >
         <Pin
+          className="Pin"
           lat={lat}
           lng={lon}
           text={name}

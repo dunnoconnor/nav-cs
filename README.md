@@ -1,6 +1,6 @@
 # About &#60;nav-cs&#62;
 
-[**<nav-cs>**](https://nav-cs.herokuapp.com/) is a tool for students to compare computer science degree programs and find the one that is right for them.
+[**nav-cs**](https://nav-cs.herokuapp.com/) is a tool for students to compare computer science degree programs and find the one that is right for them.
 
 This project is dedicated to the students at Lawrence High School who have asked me about how to find the a Computer Science degree program that fit their specific needs.
 
@@ -10,7 +10,7 @@ This project is dedicated to the students at Lawrence High School who have asked
 
 All school data comes from the U.S. Department of Education's [College Scorecard](https://collegescorecard.ed.gov/).
 
-Data visualizations were created with [React Google Charts](https://react-google-charts.com/).
+Data visualizations were created with [React Google Charts](https://react-google-charts.com/).  Map views were created with [React Google Map](https://www.npmjs.com/package/react-google-map).
 
 ## Getting Started
 

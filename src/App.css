@@ -18,12 +18,13 @@
   flex-direction: column;
   justify-content: center;
   width: 100vw;
-  height: 10vh;
+  height: 16vh;
+  min-height: 120px;
   padding: 0.4rem;
   color: rgb(255, 255, 255);
 }
 
-.Header a, .newSearch {
+.Header a {
   color: rgb(255, 255, 255);
 }
 
@@ -44,6 +45,7 @@
   justify-content: space-around;
   align-items:flex-start;
   height: 16vh;
+  min-height: 120px;
   width: 85vw;
   margin: 0.4rem;
   padding: 0.4rem;
@@ -87,7 +89,7 @@ a {
   padding: 0.8rem;
 }
 
-select, button, input {
+select, button, input, .new-search {
   height: 40px;
   border-style: solid;
   padding:  0.2rem;
@@ -105,14 +107,16 @@ p {
 .bold {
   font-weight: bold;
   color: rgb(0, 115, 255);
-  line-height: 2rem;
 }
 
 .school-location {
   color: darkgray;
 }
 
-.return-button{
+.program-detail {
+  margin: 0.6rem;
+}
+.return-button, .new-search{
   width: 100%;
   background-color: rgb(217, 234, 255);
   border-style: none;
@@ -129,7 +133,8 @@ p {
   align-items: flex-start;
   text-align: left;
   width: 100vw;
-  height: 9vh;
+  height: 16vh;
+  min-height: 120px;
   padding: 0.6rem;
   background-color:rgb(52, 134, 235);
   color: rgb(255, 255, 255);
