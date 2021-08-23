@@ -10,7 +10,7 @@ function SchoolMap({name,lat,lon}) {
           lat: lat,
           lng: lon
         },
-        zoom: 11
+        zoom: 12
       };
     
     return (

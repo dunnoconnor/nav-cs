@@ -132,8 +132,8 @@ function SchoolDetail({match}) {
               <div className="banner">
                 <h4>{program.credential} in {program.title}</h4>
               </div>
-                  <p>{program.graduates} CS graduates annually</p>
-                  <p>Median post-graduate salary: {program.salary}</p>
+                  <p><span className="bold">{program.graduates}</span> CS graduates annually</p>
+                  <p>Median post-graduate salary: <span className="bold">{program.salary}</span></p>
               </div>
           </div>
         );

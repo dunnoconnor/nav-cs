@@ -4,6 +4,7 @@
   display: flex;
   overflow-y: hidden;
   flex-direction: column;
+  align-items: center;
   min-height: min-content;
   max-width: 100vw;
   background-image: url("./components/college.jpeg");
@@ -26,11 +27,6 @@
   color: rgb(255, 255, 255);
 }
 
-.Main{
-  overflow-y: hidden;
-}
-
-
 .Schools{
   display: flex;
   overflow-x: scroll;
@@ -39,16 +35,6 @@
   justify-content: center;
   align-items: center;
   margin: 1rem;
-}
-
-.SalaryChart {
-  width: 100vw;
-  margin: 0.4rem;
-  padding: 0.4rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-style: solid;
-  border-radius: 6px;
-  border-width: 2px;
 }
 
 .School {
@@ -119,6 +105,7 @@ p {
 .bold {
   font-weight: bold;
   color: rgb(0, 115, 255);
+  line-height: 2rem;
 }
 
 .school-location {
@@ -143,13 +130,14 @@ p {
   text-align: left;
   width: 100vw;
   height: 9vh;
-  padding: 0.4rem;
+  padding: 0.6rem;
   background-color:rgb(52, 134, 235);
   color: rgb(255, 255, 255);
 }
 
 .Footer a {
   color: rgb(255, 255, 255);
+  margin: 0.4rem;
 }
 
 .row {
@@ -171,4 +159,15 @@ p {
   height: 250px;
   margin: 0.2rem;
   padding: 0.2rem;
+}
+
+@media only screen and (min-width: 750px) {
+
+  .Form, .Schools, .SchoolDetail {
+    width: 650px;
+  }
+
+  .School {
+    width: 550px;
+  }
 }
