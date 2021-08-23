@@ -85,7 +85,6 @@ function SchoolDetail({match}) {
               actScore : thisSchool['latest.admissions.act_scores.midpoint.cumulative']
           };
           //store program profile object in state
-          console.log(programProfile.lat, programProfile.lon)
           setProgram(programProfile);
         })
         .catch(console.error);
