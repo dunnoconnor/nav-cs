@@ -10,7 +10,7 @@ function SalaryChart({schools}) {
     ];
 
     filteredResults.forEach((s, i) => {
-        if(i<6)dataArray.push([s.name,s.salary]);
+        if (i<6) dataArray.push([s.name,s.salary]);
     });
     
     return (

@@ -56,7 +56,7 @@ function Search({resolveSearch}) {
                 </select>
             </div>
 
-            {(formState.locationType==='state' ? <SearchState handleChange={handleChange} stateCode={formState.stateCode}/> : <SearchZip handleChange={handleChange} zipode={formState.zipcode} range={formState.range}/>)}
+            {(formState.locationType==='state' ? <SearchState handleChange={handleChange} stateCode={formState.stateCode}/> : <SearchZip handleChange={handleChange} zipcode={formState.zipcode} range={formState.range}/>)}
 
             <button type="submit">Search</button>
         </form>

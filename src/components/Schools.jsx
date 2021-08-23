@@ -49,7 +49,7 @@ function Schools({resetSearch, searchProperties}) {
   //convert relevant api data to array of objects
   function createSchoolsArray(results){
     let schoolResults = [];
-    //map through response results, converting to object properties for easieer access
+    //map through response results, converting to object properties for easier access
     results.map(i => (
       schoolResults.push(
         {

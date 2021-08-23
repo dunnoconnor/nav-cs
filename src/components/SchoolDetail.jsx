@@ -8,7 +8,7 @@ function SchoolDetail({match}) {
         key: process.env.REACT_APP_CSC_KEY,
         api: 'https://api.data.gov/ed/collegescorecard/v1',
         id: match.params.id,
-        major: 'latest.programs.cip_4_digit.code=1107',
+        major: 'latest.programs.cip_4_digit.code=1101,1102,1107',
         credential: 'latest.programs.cip_4_digit.credential.level=2,3',
         per_page: '1',
         fields: [
