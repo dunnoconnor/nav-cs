@@ -6,7 +6,7 @@ This project is dedicated to the students at Lawrence High School who have asked
 
 ## Technologies Used
 
-**<nav-cs>** was created using [React.js](https://reactjs.org/) and hosted through [Heroku](https://www.heroku.com/).
+**&#60;nav-cs&#62** was created using [React.js](https://reactjs.org/) and hosted through [Heroku](https://www.heroku.com/).
 
 All school data comes from the U.S. Department of Education's [College Scorecard](https://collegescorecard.ed.gov/).
 
